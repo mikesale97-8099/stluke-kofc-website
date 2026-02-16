@@ -34,7 +34,7 @@ nav {
 }
 
 nav .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -43,8 +43,8 @@ nav .container {
 }
 
 nav .logo-section {
-    background: var(--primary);
-    padding: 1rem 2rem;
+    background: white;
+    padding: 0.8rem 2rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -52,9 +52,9 @@ nav .logo-section {
 
 nav .logo {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: white;
+    color: var(--primary);
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -62,18 +62,18 @@ nav .logo {
 }
 
 nav .logo-main {
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
+    font-size: 1.15rem;
+    letter-spacing: 0.3px;
 }
 
 nav .logo-sub {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 400;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 nav .emblem {
-    height: 60px;
+    height: 50px;
     width: auto;
 }
 
@@ -83,7 +83,7 @@ nav ul {
     gap: 0;
     align-items: stretch;
     margin: 0;
-    background: var(--nav-bg);
+    background: #F3F4F6;
 }
 
 nav ul li {
@@ -92,13 +92,13 @@ nav ul li {
 }
 
 nav a {
-    color: var(--text-medium);
+    color: #6B7280;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s;
-    font-size: 1rem;
+    transition: all 0.2s;
+    font-size: 0.95rem;
     font-family: 'Lato', 'Arial', sans-serif;
-    padding: 1.5rem 1.5rem;
+    padding: 1.2rem 1.3rem;
     display: block;
     border-bottom: 3px solid transparent;
 }
@@ -123,10 +123,26 @@ nav a.active {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.9)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231E3A8A" width="1200" height="400"/></svg>');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 4rem 2rem 3rem;
+    padding: 2.5rem 2rem 2rem;
     text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .page-header h1 {

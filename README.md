@@ -1,7 +1,53 @@
 # St. Luke Knights of Columbus Website
 ## Council #14895 - Indianapolis
 
-A modern, multi-page website for St. Luke Knights of Columbus with warm, community-focused design.
+A modern, multi-page website for St. Luke Knights of Columbus with official Knights branding.
+
+---
+
+## 🎨 Adding Your Stained Glass Window Background
+
+To add the beautiful stained glass window from your church to page headers:
+
+### Option 1: Upload Image to GitHub
+1. Save your stained glass image as `stained-glass.jpg`
+2. In GitHub, create a new folder called `images`
+3. Upload the image to that folder
+4. In `styles.css`, find `.page-header` and change the background to:
+```css
+.page-header {
+    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.9)),
+                url('images/stained-glass.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+}
+```
+
+### Option 2: Different Opacity Levels
+Adjust the overlay darkness by changing the rgba values:
+- Darker overlay: `rgba(30, 58, 138, 0.95)` 
+- Lighter overlay: `rgba(30, 58, 138, 0.7)`
+- Very light: `rgba(30, 58, 138, 0.5)`
+
+---
+
+## 📏 Compact Design Updates
+
+**New Slim Navigation:**
+- Height reduced from ~100px to ~65px
+- Logo section now white (like current site)
+- Smaller fonts and tighter spacing
+- Matches your current site's look
+
+**Shorter Page Headers:**
+- Reduced from 4rem to 2.5rem padding
+- Smaller title fonts
+- Ready for stained glass background
+
+**Total Space Saved:** ~120px at top of each page!
 
 ---
 
