@@ -7,52 +7,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .volunteer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .volunteer-card {
+        .activity-section {
             background: white;
             border-radius: 16px;
             padding: 2rem;
+            margin-bottom: 2rem;
             box-shadow: 0 4px 15px var(--shadow);
-            transition: all 0.3s;
-            border-top: 4px solid var(--accent);
+            border-left: 6px solid var(--accent);
         }
 
-        .volunteer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow);
-        }
-
-        .volunteer-card h3 {
+        .activity-section h3 {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .volunteer-card p {
+        .activity-frequency {
             color: var(--text-medium);
+            font-style: italic;
             margin-bottom: 1.5rem;
-            line-height: 1.8;
         }
 
-        .volunteer-card .btn {
-            width: 100%;
-            text-align: center;
-            background: var(--primary);
+        .opportunities-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .opportunity-item {
+            background: var(--light-bg);
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .opportunity-item:hover {
+            background: #E5E7EB;
+            transform: translateX(5px);
+        }
+
+        .opportunity-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .signup-btn {
+            background: var(--secondary);
             color: white;
-            padding: 0.9rem;
-            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
         }
 
-        .volunteer-card .btn:hover {
-            background: var(--accent);
+        .signup-btn:hover {
+            background: var(--primary);
+            transform: scale(1.05);
         }
 
         .intro-box {
@@ -60,8 +76,8 @@
             padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 6px 20px var(--shadow);
-            max-width: 800px;
-            margin: 0 auto 4rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
             text-align: center;
         }
 
@@ -76,6 +92,18 @@
             font-size: 1.15rem;
             line-height: 1.8;
             color: var(--text-medium);
+        }
+
+        .highlight-note {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-note strong {
+            color: #92400E;
         }
     </style>
 </head>
@@ -103,145 +131,351 @@
 
     <!-- Page Header -->
     <div class="page-header">
-        <h1>Volunteer With Us</h1>
-        <p>Make a real difference in our community through service</p>
+        <h1>Volunteer Opportunities</h1>
+        <p>2025-2026 Activities - Many ways to serve!</p>
     </div>
 
     <!-- Introduction -->
     <section>
         <div class="container">
             <div class="intro-box">
-                <h3>Many Hands Make Light Work</h3>
-                <p>Whether you're a Knight, a family member, or a parishioner wanting to help, there are plenty of ways to serve. From cooking pancakes to coaching youth sports, from prayer vigils to blood drives—every volunteer makes a difference. No experience necessary for most activities, just a willing heart!</p>
+                <h3>Join Us in Making a Difference</h3>
+                <p>Below are all the volunteer opportunities for the 2025-2026 year. From serving at Mass to grilling at Fall Fest, there's something for everyone. Click "Sign Up" next to any opportunity to get involved!</p>
+                <p style="margin-top: 1rem;"><strong>Note:</strong> You don't need to be a Knight to volunteer. Family members and parishioners are welcome at most events!</p>
             </div>
         </div>
     </section>
 
-    <!-- Volunteer Opportunities -->
-    <section style="background: var(--cream);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ways to Serve</h2>
-                <p>Find the right opportunity for you</p>
-            </div>
-            <div class="volunteer-grid">
-                <div class="volunteer-card">
-                    <h3>🍽️ Fish Fries</h3>
-                    <p>Help prepare and serve our famous Lenten fish fries held twice each year. We need cooks, servers, cashiers, and clean-up crew. Expert fish slingers and friendly smiles welcome! Great fellowship opportunity.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Fish Fry Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🥞 Pancake Breakfasts</h3>
-                    <p>Join us in cooking, serving, and cleaning up at our fundraising pancake breakfasts held several times throughout the year. All skill levels welcome—we'll teach you everything you need to know!</p>
-                    <a href="mailto:council14895@gmail.com?subject=Pancake Breakfast Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🧥 Coats for Kids</h3>
-                    <p>Help distribute warm winter coats to students at Holy Angels School each fall. We measure kids, help them try on coats, and make sure every child has what they need to stay warm during Indiana winters.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Coats for Kids Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🍔 Fall Festival Grillin' Knights</h3>
-                    <p>Work the food booth at St. Luke's annual Fall Festival in September. Grill burgers and brats, serve hungry festival-goers, and be a visible presence for the Knights in our parish community.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Grillin Knights Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🩸 Blood Drives</h3>
-                    <p>Support our Indiana Blood Bank drives held multiple times throughout the year. Help organize, check in donors, serve refreshments, or donate blood yourself to save lives in our community.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Blood Drive Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🏀 Basketball Free Throw</h3>
-                    <p>Help run our annual youth basketball free throw contest in January. We need scorekeepers, coaches, and encouragers to support young athletes testing their skills.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Basketball Free Throw Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-
-                <div class="volunteer-card">
-                    <h3>⚽ Soccer Kick Competition</h3>
-                    <p>Assist with our youth soccer kick competition typically held during the Fall Festival. Help set up, keep score, and encourage young soccer players as they compete.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Soccer Kick Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-
-                <div class="volunteer-card">
-                    <h3>🚴 Bike Rodeo</h3>
-                    <p>Each spring we check children's bikes for safety, air up tires, clean and oil chains, and teach safe riding skills. Perfect for those who enjoy working with kids and bikes!</p>
-                    <a href="mailto:council14895@gmail.com?subject=Bike Rodeo Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>🙏 Pro-Life Ministry</h3>
-                    <p>Join us for 40 Days for Life prayer vigils at Planned Parenthood, support the Baby Bottle Campaign for pregnancy centers, and participate in the Life Chain. Peaceful witness for the dignity of human life.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Pro-Life Ministry Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-                
-                <div class="volunteer-card">
-                    <h3>⛪ Fifth Sunday Mass</h3>
-                    <p>Serve as ushers, lectors, and Eucharistic ministers at our special Fifth Sunday Masses when months have five Sundays. A great way to serve the parish liturgically.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Fifth Sunday Mass Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-
-                <div class="volunteer-card">
-                    <h3>🏅 Special Olympics</h3>
-                    <p>Assist with preparation for competition and officiate at Indiana Special Olympics events in June. Support athletes with intellectual disabilities as they compete and achieve their goals.</p>
-                    <a href="mailto:council14895@gmail.com?subject=Special Olympics Volunteer" class="btn">Sign Up to Help</a>
-                </div>
-
-                <div class="volunteer-card">
-                    <h3>🥫 40 Cans for Lent</h3>
-                    <p>Help coordinate our annual Lenten food drive for the Boulevard Place Food Pantry. Organize collection, sort donations, and help us reach our goal of 10,000 pounds of food!</p>
-                    <a href="mailto:council14895@gmail.com?subject=40 Cans for Lent Volunteer" class="btn">Sign Up to Help</a>
+    <!-- Volunteer Opportunities by Activity -->
+    <section style="background: var(--light-bg);">
+        <div class="container" style="max-width: 1100px;">
+            
+            <!-- K of C Mass -->
+            <div class="activity-section">
+                <h3>1. Knights of Columbus Mass</h3>
+                <div class="activity-frequency">3-4 times per year</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Eucharistic Ministers</span>
+                        <a href="mailto:council14895@gmail.com?subject=K of C Mass - Eucharistic Ministers" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Lectors</span>
+                        <a href="mailto:council14895@gmail.com?subject=K of C Mass - Lectors" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Ministers of Hospitality</span>
+                        <a href="mailto:council14895@gmail.com?subject=K of C Mass - Ministers of Hospitality" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Man table for sign up and questions</span>
+                        <a href="mailto:council14895@gmail.com?subject=K of C Mass - Information Table" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Issue Yellow Sashs</span>
+                        <a href="mailto:council14895@gmail.com?subject=K of C Mass - Issue Yellow Sashs" class="signup-btn">Sign Up</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- Blood Drive -->
+            <div class="activity-section">
+                <h3>2. Blood Drive</h3>
+                <div class="activity-frequency">3 times per year</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Sign up after Mass</span>
+                        <a href="mailto:council14895@gmail.com?subject=Blood Drive - Sign Up Coordinator" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Give Blood</span>
+                        <a href="mailto:council14895@gmail.com?subject=Blood Drive - Donate Blood" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fall Fest Grillin Knights -->
+            <div class="activity-section">
+                <h3>3. Fall Festival - Grillin' Knights</h3>
+                <div class="activity-frequency">Annual - September</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Set up and take down</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fall Fest - Setup/Takedown" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Kitchen help</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fall Fest - Kitchen Help" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Serving Food</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fall Fest - Serving Food" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Grilling Food</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fall Fest - Grilling" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Youth Soccer Challenge -->
+            <div class="activity-section">
+                <h3>4. Youth Soccer Challenge</h3>
+                <div class="activity-frequency">Annual - September</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Sign up youth</span>
+                        <a href="mailto:council14895@gmail.com?subject=Soccer Challenge - Sign Up Youth" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Set at football field and up front</span>
+                        <a href="mailto:council14895@gmail.com?subject=Soccer Challenge - Field Setup" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Run the Soccer Challenge</span>
+                        <a href="mailto:council14895@gmail.com?subject=Soccer Challenge - Run Event" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 40 Days for Life -->
+            <div class="activity-section">
+                <h3>5. 40 Days for Life</h3>
+                <div class="activity-frequency">2 times per year</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Sign up at Mass</span>
+                        <a href="mailto:council14895@gmail.com?subject=40 Days for Life - Sign Up Coordinator" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Pray for Life for 1 Hr at 86th & Georgetown</span>
+                        <a href="mailto:council14895@gmail.com?subject=40 Days for Life - Prayer Vigil" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pancake Breakfast -->
+            <div class="activity-section">
+                <h3>6. Pancake Breakfast</h3>
+                <div class="activity-frequency">3 times per year</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Set up and Take Down</span>
+                        <a href="mailto:council14895@gmail.com?subject=Pancake Breakfast - Setup/Takedown" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Cooking, cleaning, serving</span>
+                        <a href="mailto:council14895@gmail.com?subject=Pancake Breakfast - Kitchen" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Coffee serving and table cleaning</span>
+                        <a href="mailto:council14895@gmail.com?subject=Pancake Breakfast - Coffee & Tables" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coats for Kids -->
+            <div class="activity-section">
+                <h3>7. Coats for Kids</h3>
+                <div class="activity-frequency">Annual - Late October</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Buy the coats</span>
+                        <a href="mailto:council14895@gmail.com?subject=Coats for Kids - Purchase Coordinator" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Go to school and give coats to kids</span>
+                        <a href="mailto:council14895@gmail.com?subject=Coats for Kids - Distribution" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Youth Basketball Free Throw -->
+            <div class="activity-section">
+                <h3>8. Youth Basketball Free Throw Contest</h3>
+                <div class="activity-frequency">Annual - January</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Advertise for it</span>
+                        <a href="mailto:council14895@gmail.com?subject=Basketball Free Throw - Advertising" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Set a time for Gym</span>
+                        <a href="mailto:council14895@gmail.com?subject=Basketball Free Throw - Gym Coordinator" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Baby Bottle Drive -->
+            <div class="activity-section">
+                <h3>9. Baby Bottle Drive</h3>
+                <div class="activity-frequency">Annual - January/February</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Advertise for it</span>
+                        <a href="mailto:council14895@gmail.com?subject=Baby Bottle Drive - Advertising" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Pass out and collect bottles after masses</span>
+                        <a href="mailto:council14895@gmail.com?subject=Baby Bottle Drive - Distribution/Collection" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 40 Cans for Lent -->
+            <div class="activity-section">
+                <h3>10. 40 Cans for Lent</h3>
+                <div class="activity-frequency">Annual - During Lent (Goal: 10,000 pounds)</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Advertise for it</span>
+                        <a href="mailto:council14895@gmail.com?subject=40 Cans for Lent - Advertising" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Collect at all mass weekends in Lent</span>
+                        <a href="mailto:council14895@gmail.com?subject=40 Cans for Lent - Collection" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Take to Boulevard Pantry</span>
+                        <a href="mailto:council14895@gmail.com?subject=40 Cans for Lent - Delivery" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fish Fry -->
+            <div class="activity-section">
+                <h3>11. Fish Fry</h3>
+                <div class="activity-frequency">Two Fridays in Lent</div>
+                <div class="highlight-note">
+                    <strong>Major Event!</strong> Multiple volunteers needed each night
+                </div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Advertise for it</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Advertising" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Work tables in Narthex for Sales & Info (all weekends in Lent)</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Narthex Tables" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Kitchen workers</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Kitchen" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">At Door Sales</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Door Sales" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Serving Line and Concession</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Serving Line" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Beer & Wine Sales</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Beer and Wine Sales" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Beer and Win Serving</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Beer and Wine Serving" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Beer Baron and Wine Lord Sales</span>
+                        <a href="mailto:council14895@gmail.com?subject=Fish Fry - Beer Baron Wine Lord" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- St. Joseph MVPS Dinner -->
+            <div class="activity-section">
+                <h3>12. St. Joseph MVPS Dinner</h3>
+                <div class="activity-frequency">Annual</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Help serve at dinner</span>
+                        <a href="mailto:council14895@gmail.com?subject=MVPS Dinner - Volunteer" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mary's Way -->
+            <div class="activity-section">
+                <h3>13. Mary's Way</h3>
+                <div class="activity-frequency">Annual</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Help set up and serve</span>
+                        <a href="mailto:council14895@gmail.com?subject=Mary's Way - Setup and Serve" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Help take down after dinner</span>
+                        <a href="mailto:council14895@gmail.com?subject=Mary's Way - Takedown" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bocce League -->
+            <div class="activity-section">
+                <h3>14. Bocce League Championship and Commencement Cookout</h3>
+                <div class="activity-frequency">Annual - Summer</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Help to set up and take down</span>
+                        <a href="mailto:council14895@gmail.com?subject=Bocce - Setup and Takedown" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summer Hot Dog Night -->
+            <div class="activity-section">
+                <h3>15. Summer Hot Dog Night</h3>
+                <div class="activity-frequency">One night per summer</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Cook Hot Dogs</span>
+                        <a href="mailto:council14895@gmail.com?subject=Hot Dog Night - Cook" class="signup-btn">Sign Up</a>
+                    </div>
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Set up food</span>
+                        <a href="mailto:council14895@gmail.com?subject=Hot Dog Night - Setup" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mass for Special Needs -->
+            <div class="activity-section">
+                <h3>16. Mass for Special Needs</h3>
+                <div class="activity-frequency">Periodic</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Serve at special needs Mass</span>
+                        <a href="mailto:council14895@gmail.com?subject=Special Needs Mass - Volunteer" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Openhouse -->
+            <div class="activity-section">
+                <h3>17. School Openhouse</h3>
+                <div class="activity-frequency">Annual</div>
+                <div class="opportunities-list">
+                    <div class="opportunity-item">
+                        <span class="opportunity-name">Table in school entry for recruiting new members</span>
+                        <a href="mailto:council14895@gmail.com?subject=School Openhouse - Recruitment Table" class="signup-btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- For Non-Knights -->
+    <!-- Call to Action -->
     <section>
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 style="font-family: 'Crimson Pro', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;">Not a Knight Yet?</h2>
-                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); margin-bottom: 2rem;">
-                    You don't have to be a member to volunteer! We welcome help from anyone in the parish community. However, if you find yourself enjoying the fellowship and service, you might consider joining our brotherhood.
-                </p>
-                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="join.html" class="btn btn-primary">Learn About Membership</a>
-                    <a href="contact.html" class="btn" style="background: var(--primary); color: white;">Ask Questions</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteer Impact -->
-    <section style="background: var(--cream);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Your Impact</h2>
-                <p>See the difference volunteers make</p>
-            </div>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
-                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">165+</div>
-                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Coats Distributed</h4>
-                        <p style="color: var(--text-medium);">Children kept warm each winter</p>
-                    </div>
-                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
-                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">10,000</div>
-                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Pounds of Food</h4>
-                        <p style="color: var(--text-medium);">Annual 40 Cans for Lent goal</p>
-                    </div>
-                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
-                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">100+</div>
-                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Youth Athletes</h4>
-                        <p style="color: var(--text-medium);">Supported through sports events</p>
-                    </div>
-                </div>
-            </div>
+        <div class="container" style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <h2 style="font-family: 'Crimson Pro', serif; font-size: 2.3rem; color: var(--primary); margin-bottom: 1.5rem;">Questions About Volunteering?</h2>
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); margin-bottom: 2rem;">
+                We're here to help! Contact us if you have questions about any volunteer opportunity, need more information, or want to suggest a new way to serve.
+            </p>
+            <a href="mailto:council14895@gmail.com?subject=Volunteer Question" class="btn btn-primary">Contact Us</a>
         </div>
     </section>
 
