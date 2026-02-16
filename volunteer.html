@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - St. Luke Knights of Columbus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .volunteer-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+
+        .volunteer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .volunteer-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .volunteer-card p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .volunteer-card .btn {
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem;
+            font-size: 1rem;
+        }
+
+        .volunteer-card .btn:hover {
+            background: var(--accent);
+        }
+
+        .intro-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px var(--shadow);
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .intro-box h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo-section">
+                <a href="index.html" class="logo">
+                    <span class="logo-main">ST. LUKE THE EVANGELIST</span>
+                    <span class="logo-main">KNIGHTS OF COLUMBUS</span>
+                    <span class="logo-sub">Indianapolis, Indiana • Council 14895</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="volunteer.html" class="active">Volunteer</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Volunteer With Us</h1>
+        <p>Make a real difference in our community through service</p>
+    </div>
+
+    <!-- Introduction -->
+    <section>
+        <div class="container">
+            <div class="intro-box">
+                <h3>Many Hands Make Light Work</h3>
+                <p>Whether you're a Knight, a family member, or a parishioner wanting to help, there are plenty of ways to serve. From cooking pancakes to coaching youth sports, from prayer vigils to blood drives—every volunteer makes a difference. No experience necessary for most activities, just a willing heart!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Opportunities -->
+    <section style="background: var(--cream);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ways to Serve</h2>
+                <p>Find the right opportunity for you</p>
+            </div>
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <h3>🍽️ Fish Fries</h3>
+                    <p>Help prepare and serve our famous Lenten fish fries held twice each year. We need cooks, servers, cashiers, and clean-up crew. Expert fish slingers and friendly smiles welcome! Great fellowship opportunity.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Fish Fry Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🥞 Pancake Breakfasts</h3>
+                    <p>Join us in cooking, serving, and cleaning up at our fundraising pancake breakfasts held several times throughout the year. All skill levels welcome—we'll teach you everything you need to know!</p>
+                    <a href="mailto:council14895@gmail.com?subject=Pancake Breakfast Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🧥 Coats for Kids</h3>
+                    <p>Help distribute warm winter coats to students at Holy Angels School each fall. We measure kids, help them try on coats, and make sure every child has what they need to stay warm during Indiana winters.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Coats for Kids Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🍔 Fall Festival Grillin' Knights</h3>
+                    <p>Work the food booth at St. Luke's annual Fall Festival in September. Grill burgers and brats, serve hungry festival-goers, and be a visible presence for the Knights in our parish community.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Grillin Knights Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🩸 Blood Drives</h3>
+                    <p>Support our Indiana Blood Bank drives held multiple times throughout the year. Help organize, check in donors, serve refreshments, or donate blood yourself to save lives in our community.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Blood Drive Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🏀 Basketball Free Throw</h3>
+                    <p>Help run our annual youth basketball free throw contest in January. We need scorekeepers, coaches, and encouragers to support young athletes testing their skills.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Basketball Free Throw Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+
+                <div class="volunteer-card">
+                    <h3>⚽ Soccer Kick Competition</h3>
+                    <p>Assist with our youth soccer kick competition typically held during the Fall Festival. Help set up, keep score, and encourage young soccer players as they compete.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Soccer Kick Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+
+                <div class="volunteer-card">
+                    <h3>🚴 Bike Rodeo</h3>
+                    <p>Each spring we check children's bikes for safety, air up tires, clean and oil chains, and teach safe riding skills. Perfect for those who enjoy working with kids and bikes!</p>
+                    <a href="mailto:council14895@gmail.com?subject=Bike Rodeo Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>🙏 Pro-Life Ministry</h3>
+                    <p>Join us for 40 Days for Life prayer vigils at Planned Parenthood, support the Baby Bottle Campaign for pregnancy centers, and participate in the Life Chain. Peaceful witness for the dignity of human life.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Pro-Life Ministry Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3>⛪ Fifth Sunday Mass</h3>
+                    <p>Serve as ushers, lectors, and Eucharistic ministers at our special Fifth Sunday Masses when months have five Sundays. A great way to serve the parish liturgically.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Fifth Sunday Mass Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+
+                <div class="volunteer-card">
+                    <h3>🏅 Special Olympics</h3>
+                    <p>Assist with preparation for competition and officiate at Indiana Special Olympics events in June. Support athletes with intellectual disabilities as they compete and achieve their goals.</p>
+                    <a href="mailto:council14895@gmail.com?subject=Special Olympics Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+
+                <div class="volunteer-card">
+                    <h3>🥫 40 Cans for Lent</h3>
+                    <p>Help coordinate our annual Lenten food drive for the Boulevard Place Food Pantry. Organize collection, sort donations, and help us reach our goal of 10,000 pounds of food!</p>
+                    <a href="mailto:council14895@gmail.com?subject=40 Cans for Lent Volunteer" class="btn">Sign Up to Help</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Non-Knights -->
+    <section>
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-family: 'Crimson Pro', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;">Not a Knight Yet?</h2>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); margin-bottom: 2rem;">
+                    You don't have to be a member to volunteer! We welcome help from anyone in the parish community. However, if you find yourself enjoying the fellowship and service, you might consider joining our brotherhood.
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="join.html" class="btn btn-primary">Learn About Membership</a>
+                    <a href="contact.html" class="btn" style="background: var(--primary); color: white;">Ask Questions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Impact -->
+    <section style="background: var(--cream);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Impact</h2>
+                <p>See the difference volunteers make</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
+                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">165+</div>
+                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Coats Distributed</h4>
+                        <p style="color: var(--text-medium);">Children kept warm each winter</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
+                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">10,000</div>
+                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Pounds of Food</h4>
+                        <p style="color: var(--text-medium);">Annual 40 Cans for Lent goal</p>
+                    </div>
+                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow);">
+                        <div style="font-size: 3rem; color: var(--accent); margin-bottom: 0.5rem;">100+</div>
+                        <h4 style="font-family: 'Crimson Pro', serif; color: var(--primary); margin-bottom: 0.5rem;">Youth Athletes</h4>
+                        <p style="color: var(--text-medium);">Supported through sports events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>📧 council14895@gmail.com</li>
+                    <li>📍 7575 Holliday Drive East</li>
+                    <li>St. Luke Catholic Church</li>
+                    <li>Indianapolis, IN</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Knights of Columbus</h3>
+                <ul>
+                    <li><a href="http://www.kofc.org/" target="_blank">Supreme Council</a></li>
+                    <li><a href="http://www.indianakofc.org/" target="_blank">Indiana State Council</a></li>
+                    <li><a href="http://www.stluke.org/" target="_blank">St. Luke Parish</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 St. Luke Knights of Columbus Council #14895. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
