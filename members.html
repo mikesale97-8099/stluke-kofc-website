@@ -282,11 +282,7 @@
 
                     <div style="text-align: center; padding: 1.5rem; background: var(--light-bg); border-radius: 12px;">
                         <p style="margin-bottom: 1rem; color: var(--text-medium);">Questions or need to update your information?</p>
-                        <a href="mailto:council14895@gmail.com?subject=Membership Update Request" 
-                           style="background: var(--secondary); color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s;"
-                           onmouseover="this.style.background='var(--primary)'"
-                           onmouseout="this.style.background='var(--secondary)'"
-                        >
+                        <a href="/cdn-cgi/l/email-protection#0f6c607a616c66633e3b37363a4f68626e6663216c6062307c7a6d656a6c7b32426a626d6a7d7c67667f2f5a7f6b6e7b6a2f5d6a7e7a6a7c7b" style="background: var(--secondary); color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='var(--primary)'" onmouseout="this.style.background='var(--secondary)'">
                             Contact Financial Secretary
                         </a>
                     </div>
@@ -479,7 +475,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const SHEET_ID = '1vNZ2vbZ-bINXL2_HjunAjfcXFOSKiWiIAtFqHAzt-D8';
         const SHEET_NAME = 'members';
         
@@ -517,7 +513,21 @@
                         document.getElementById('memberZip').textContent = row[3]?.v || '';
                         document.getElementById('memberEmail').textContent = row[4]?.v || '';
                         document.getElementById('memberPhone').textContent = row[5]?.v || '';
-                        document.getElementById('memberLastPayment').textContent = row[6]?.v || '';
+                        
+                        // Format the date from Google Sheets format
+                        let lastPayment = row[6]?.v || '';
+                        if (lastPayment && lastPayment.startsWith('Date(')) {
+                            // Parse Date(2025,4,7) format - note month is 0-indexed in JavaScript
+                            const match = lastPayment.match(/Date\((\d+),(\d+),(\d+)\)/);
+                            if (match) {
+                                const year = match[1];
+                                const month = parseInt(match[2]) + 1; // Convert from 0-indexed to 1-indexed
+                                const day = match[3];
+                                lastPayment = `${month}/${day}/${year}`;
+                            }
+                        }
+                        document.getElementById('memberLastPayment').textContent = lastPayment;
+                        
                         document.getElementById('memberDuesStatus').textContent = row[7]?.v || '';
                         
                         memberCard.style.display = 'block';
@@ -540,9 +550,4 @@
         // Allow Enter key to submit
         document.getElementById('emailLookup').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                lookupMember();
-            }
-        });
-    </script>
-</body>
-</html>
+        
