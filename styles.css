@@ -89,6 +89,7 @@ nav ul {
 nav ul li {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 nav a {
@@ -101,6 +102,61 @@ nav a {
     padding: 1.2rem 1.3rem;
     display: block;
     border-bottom: 3px solid transparent;
+}
+
+/* Dropdown Menu Styles */
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+nav ul li:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown a {
+    padding: 0.8rem 1.2rem;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    font-size: 0.9rem;
+    color: #4B5563;
+}
+
+.nav-dropdown a:hover {
+    background: var(--light-bg);
+    border-left-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Mobile: tap to toggle dropdown */
+@media (max-width: 968px) {
+    .nav-dropdown {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    nav ul li.dropdown-open .nav-dropdown {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 nav a:hover {
