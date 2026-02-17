@@ -215,14 +215,18 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&    <script>
+            <p>&copy; 2026 St. Luke Knights of Columbus Council #14895. All rights reserved. | <a href="sitemap.html" style="color: var(--secondary);">Site Map</a></p>
+        </div>
+    </footer>
+
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             var btn = document.getElementById("mobileMenuBtn");
             var menu = document.querySelector("nav ul");
             if (btn && menu) {
                 btn.addEventListener("click", function() {
                     menu.classList.toggle("mobile-open");
-                    btn.textContent = menu.classList.contains("mobile-open") ? "X" : "=";
+                    btn.textContent = menu.classList.contains("mobile-open") ? "✕" : "☰";
                 });
             }
         });
