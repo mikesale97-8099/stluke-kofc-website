@@ -155,7 +155,10 @@
     <script>
         function toggleMobileMenu() {
             const menu = document.querySelector("nav ul");
+            console.log("Toggle clicked, menu:", menu);
+            console.log("Current classes:", menu.className);
             menu.classList.toggle("mobile-open");
+            console.log("After toggle:", menu.className);
         }
     </script>
 

@@ -123,6 +123,7 @@ nav a.active {
     color: var(--primary);
     cursor: pointer;
     padding: 0.5rem 1rem;
+    margin-left: auto;
 }
 
 @media (max-width: 968px) {
@@ -132,6 +133,7 @@ nav a.active {
     
     nav .container {
         flex-wrap: wrap;
+        position: relative;
     }
     
     nav ul {
@@ -140,6 +142,7 @@ nav a.active {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        order: 3;
     }
     
     nav ul.mobile-open {
@@ -153,10 +156,21 @@ nav a.active {
     nav a {
         width: 100%;
         border-bottom: 1px solid #E5E7EB;
+        border-bottom-width: 3px;
+        border-bottom-color: transparent;
+    }
+    
+    nav a:hover,
+    nav a.active {
+        border-bottom-color: var(--primary);
     }
     
     nav .logo-section {
         flex: 1;
+    }
+    
+    .mobile-menu-toggle {
+        order: 2;
     }
 }
 
