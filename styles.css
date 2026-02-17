@@ -143,36 +143,49 @@ nav a.active {
     
     nav .container {
         flex-wrap: wrap;
-        position: relative;
     }
     
     nav ul {
+        display: none;
         flex-direction: column;
         width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        background: #F3F4F6;
         order: 3;
     }
     
     nav ul.mobile-open {
-        max-height: 1000px;
+        display: flex !important;
     }
     
     nav ul li {
         width: 100%;
+        display: block;
     }
     
-    nav a {
+    nav ul li a {
+        display: block;
         width: 100%;
+        padding: 1rem 1.5rem;
         border-bottom: 1px solid #E5E7EB;
-        border-bottom-width: 3px;
-        border-bottom-color: transparent;
+        font-size: 1.1rem;
+        color: var(--primary);
+        font-weight: 600;
     }
     
-    nav a:hover,
-    nav a.active {
-        border-bottom-color: var(--primary);
+    nav ul li a:hover,
+    nav ul li a.active {
+        background: var(--primary);
+        color: white;
+    }
+    
+    nav .logo-section {
+        flex: 1;
+    }
+    
+    .mobile-menu-toggle {
+        order: 2;
+    }
+}
     }
     
     nav .logo-section {
