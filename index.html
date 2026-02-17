@@ -147,7 +147,7 @@
                 <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
+                    <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -296,27 +296,15 @@
             });
         });
     </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const btn = document.getElementById('mobileMenuBtn');
-            const menu = document.querySelector('nav ul');
-            
-            console.log('Button:', btn);
-            console.log('Menu:', menu);
-            
-            if (btn) {
+            var btn = document.getElementById('mobileMenuBtn');
+            var menu = document.querySelector('nav ul');
+            if (btn && menu) {
                 btn.addEventListener('click', function() {
-                    alert('Button tapped!');
-                    if (menu) {
-                        menu.classList.toggle('mobile-open');
-                        console.log('Menu classes:', menu.className);
-                    } else {
-                        alert('Menu element not found!');
-                    }
+                    menu.classList.toggle('mobile-open');
+                    btn.textContent = menu.classList.contains('mobile-open') ? '✕' : '☰';
                 });
-            } else {
-                alert('Button not found!');
             }
         });
     </script>

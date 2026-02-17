@@ -180,19 +180,16 @@
                 <li><a href="events.html">Events</a></li>
                 <li><a href="volunteer.html">Volunteer</a></li>
                 <li><a href="join.html">Join Us</a></li>
+                <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
+                    <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <div class="page-header">
-        <h1>Contact Us</h1>
-        <p>Get in touch with Council #14895</p>
-    </div>
 
     <!-- Contact Information -->
-    <section>
+    <section style="padding-top: 3rem;">
         <div class="container">
             <div class="section-header">
                 <h2>Ways to Reach Us</h2>
@@ -203,7 +200,7 @@
                     <div class="icon">📧</div>
                     <h3>Email</h3>
                     <p>For membership inquiries, volunteer opportunities, or general questions:</p>
-                    <a href="mailto:council14895@gmail.com">council14895@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#82e1edf7ece1ebeeb3b6babbb7c2e5efe3ebeeace1edef"><span class="__cf_email__" data-cfemail="b0d3dfc5ded3d9dc8184888985f0d7ddd1d9dc9ed3dfdd">[email&#160;protected]</span></a>
                 </div>
 
                 <div class="contact-card">
@@ -312,7 +309,7 @@
             <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); margin-bottom: 2rem;">
                 Whether you're interested in joining, volunteering, or just learning more about what we do, we're here to help. Don't hesitate to reach out!
             </p>
-            <a href="mailto:council14895@gmail.com?subject=Question for Council 14895" class="btn btn-primary">Send Us an Email</a>
+            <a href="/cdn-cgi/l/email-protection#f2919d879c919b9ec3c6cacbc7b2959f939b9edc919d9fcd81879098979186cfa3879781869b9d9cd2949d80d2b19d879c919b9ed2c3c6cacbc7" class="btn btn-primary">Send Us an Email</a>
         </div>
     </section>
 
@@ -322,7 +319,7 @@
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li>📧 council14895@gmail.com</li>
+                    <li>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7a4a8b2a9a4aeabf6f3fffef287a0aaa6aeabe9a4a8aa">[email&#160;protected]</a></li>
                     <li>📍 7575 Holliday Drive East</li>
                     <li>St. Luke Catholic Church</li>
                     <li>Indianapolis, IN</li>
@@ -351,7 +348,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Donation amount selection
         function selectAmount(button, amount) {
             document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
@@ -363,11 +360,17 @@
         function processDonation() {
             const amount = document.getElementById('customAmount').value;
             if (amount && amount > 0) {
-                alert(`Thank you for your generosity!\n\nYou would be redirected to process a donation of $${amount}.\n\nTo complete this feature, integrate with a payment processor like:\n• PayPal\n• Stripe\n• Square\n• Your diocesan giving platform\n\nOr mail a check to:\nSt. Luke Knights of Columbus\nc/o St. Luke Catholic Church\n7575 Holliday Drive East\nIndianapolis, IN 46260`);
-            } else {
-                alert('Please select or enter a donation amount.');
+                alert(`Thank you for your generosity!\n\nYou would be redirected to    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var btn = document.getElementById("mobileMenuBtn");
+            var menu = document.querySelector("nav ul");
+            if (btn && menu) {
+                btn.addEventListener("click", function() {
+                    menu.classList.toggle("mobile-open");
+                    btn.textContent = menu.classList.contains("mobile-open") ? "X" : "=";
+                });
             }
-        }
+        });
     </script>
 </body>
 </html>

@@ -173,8 +173,10 @@
                 <li><a href="events.html">Events</a></li>
                 <li><a href="volunteer.html">Volunteer</a></li>
                 <li><a href="join.html" class="active">Join Us</a></li>
+                <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+                    <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -210,7 +212,7 @@
     </section>
 
     <!-- Membership Requirements -->
-    <section>
+    <section style="padding-top: 3rem;">
         <div class="container">
             <div class="section-header">
                 <h2>Who Can Join?</h2>
@@ -246,7 +248,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h4>Reach Out to Us</h4>
-                        <p>Send us an email at <strong>council14895@gmail.com</strong> expressing your interest in joining. You can also attend one of our monthly meetings (First Thursday at 7:00 PM) or talk to any Knight after Mass.</p>
+                        <p>Send us an email at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1774786279747e7b26232f2e2257707a767e7b3974787a">[email&#160;protected]</a></strong> expressing your interest in joining. You can also attend one of our monthly meetings (First Thursday at 7:00 PM) or talk to any Knight after Mass.</p>
                     </div>
                 </div>
 
@@ -317,7 +319,7 @@
                 <h3>Ready to Take the Next Step?</h3>
                 <p>Join hundreds of thousands of Catholic men who have found deeper faith, lasting friendships, and meaningful service through the Knights of Columbus. Your journey starts with a simple email or conversation.</p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:council14895@gmail.com?subject=Membership Inquiry" class="btn btn-primary">Email Us About Joining</a>
+                    <a href="/cdn-cgi/l/email-protection#c1a2aeb4afa2a8adf0f5f9f8f481a6aca0a8adefa2aeacfeb2b4a3aba4a2b5fc8ca4aca3a4b3b2a9a8b1e188afb0b4a8b3b8" class="btn btn-primary">Email Us About Joining</a>
                     <a href="contact.html" class="btn btn-secondary">Learn More First</a>
                 </div>
             </div>
@@ -361,7 +363,7 @@
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li>📧 council14895@gmail.com</li>
+                    <li>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7b4b8a2b9b4bebbe6e3efeee297b0bab6bebbf9b4b8ba">[email&#160;protected]</a></li>
                     <li>📍 7575 Holliday Drive East</li>
                     <li>St. Luke Catholic Church</li>
                     <li>Indianapolis, IN</li>
@@ -381,13 +383,17 @@
                 <ul>
                     <li><a href="http://www.kofc.org/" target="_blank">Supreme Council</a></li>
                     <li><a href="http://www.indianakofc.org/" target="_blank">Indiana State Council</a></li>
-                    <li><a href="http://www.stluke.org/" target="_blank">St. Luke Parish</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 St. Luke Knights of Columbus Council #14895. All rights reserved.</p>
-        </div>
-    </footer>
+             <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var btn = document.getElementById("mobileMenuBtn");
+            var menu = document.querySelector("nav ul");
+            if (btn && menu) {
+                btn.addEventListener("click", function() {
+                    menu.classList.toggle("mobile-open");
+                    btn.textContent = menu.classList.contains("mobile-open") ? "X" : "=";
+                });
+            }
+        });
+    </script>
 </body>
 </html>

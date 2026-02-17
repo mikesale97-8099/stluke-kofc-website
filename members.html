@@ -183,17 +183,9 @@
                 <li><a href="members.html" class="active">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+                    <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.querySelector('nav ul');
-            menu.classList.toggle('mobile-open');
-        }
-    </script>
 
 
     <!-- Payment Options -->
@@ -459,7 +451,6 @@
                     <li>St. Luke Catholic Church</li>
                     <li>Indianapolis, IN</li>
                 </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -469,7 +460,6 @@
                     <li><a href="volunteer.html">Volunteer</a></li>
                     <li><a href="join.html">Join Us</a></li>
                 </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             </div>
             <div class="footer-section">
                 <h3>Knights of Columbus</h3>
@@ -478,9 +468,7 @@
                     <li><a href="http://www.indianakofc.org/" target="_blank">Indiana State Council</a></li>
                     <li><a href="http://www.stluke.org/" target="_blank">St. Luke Parish</a></li>
                 </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
                 </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
         <div class="footer-bottom">
@@ -564,6 +552,18 @@
         document.getElementById('emailLookup').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 lookupMember();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('mobileMenuBtn');
+            var menu = document.querySelector('nav ul');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    menu.classList.toggle('mobile-open');
+                    btn.textContent = menu.classList.contains('mobile-open') ? '✕' : '☰';
+                });
             }
         });
     </script>

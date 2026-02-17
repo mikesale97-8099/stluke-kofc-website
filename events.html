@@ -215,6 +215,7 @@
                 <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+                    <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -540,6 +541,18 @@
                 document.querySelector('.month-detail.active').scrollIntoView({ behavior: 'smooth' });
             }
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('mobileMenuBtn');
+            var menu = document.querySelector('nav ul');
+            if (btn && menu) {
+                btn.addEventListener('click', function() {
+                    menu.classList.toggle('mobile-open');
+                    btn.textContent = menu.classList.contains('mobile-open') ? '✕' : '☰';
+                });
+            }
+        });
     </script>
 </body>
 </html>
