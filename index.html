@@ -147,7 +147,7 @@
                 <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-menu-toggle" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -298,10 +298,27 @@
     </script>
 
     <script>
-        function toggleMobileMenu() {
-            const menu = document.querySelector("nav ul");
-            menu.classList.toggle("mobile-open");
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.querySelector('nav ul');
+            
+            console.log('Button:', btn);
+            console.log('Menu:', menu);
+            
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    alert('Button tapped!');
+                    if (menu) {
+                        menu.classList.toggle('mobile-open');
+                        console.log('Menu classes:', menu.className);
+                    } else {
+                        alert('Menu element not found!');
+                    }
+                });
+            } else {
+                alert('Button not found!');
+            }
+        });
     </script>
 </body>
 </html>
