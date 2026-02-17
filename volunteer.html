@@ -35,10 +35,24 @@
             border-bottom: 2px solid var(--secondary);
         }
 
+        .category-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .category-header {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+
         .menu-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 0 0.5rem;
         }
 
         .menu-item {
@@ -47,9 +61,6 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
             background: var(--light-bg);
             border-left: 3px solid transparent;
         }
@@ -65,25 +76,6 @@
             color: white;
             border-left-color: var(--secondary);
             font-weight: 600;
-        }
-
-        .menu-number {
-            background: var(--secondary);
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .menu-item.active .menu-number {
-            background: white;
-            color: var(--primary);
         }
 
         .menu-name {
@@ -135,19 +127,19 @@
             font-size: 1.05rem;
             line-height: 1.6;
             color: var(--text-dark);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .opportunities-section h4 {
             font-family: 'Crimson Pro', serif;
             font-size: 1.3rem;
             color: var(--primary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .opportunities-list {
             display: grid;
-            gap: 0.5rem;
+            gap: 0.4rem;
             margin-bottom: 1.5rem;
         }
 
@@ -155,10 +147,11 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            padding: 0.6rem 0.8rem;
+            padding: 0.5rem 0.8rem;
             background: var(--light-bg);
             border-radius: 6px;
             font-size: 0.95rem;
+            line-height: 1.3;
         }
 
         .opportunity-item::before {
@@ -298,76 +291,81 @@
                 <!-- Left Sidebar Menu -->
                 <div class="activities-menu">
                     <h3>Select an Activity</h3>
-                    <ul class="menu-list">
-                        <li class="menu-item active" onclick="showActivity(1)">
-                            <div class="menu-number">1</div>
-                            <div class="menu-name">K of C Mass</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(2)">
-                            <div class="menu-number">2</div>
-                            <div class="menu-name">Blood Drive</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(3)">
-                            <div class="menu-number">3</div>
-                            <div class="menu-name">Fall Festival</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(4)">
-                            <div class="menu-number">4</div>
-                            <div class="menu-name">Soccer Challenge</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(5)">
-                            <div class="menu-number">5</div>
-                            <div class="menu-name">40 Days for Life</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(6)">
-                            <div class="menu-number">6</div>
-                            <div class="menu-name">Pancake Breakfast</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(7)">
-                            <div class="menu-number">7</div>
-                            <div class="menu-name">Coats for Kids</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(8)">
-                            <div class="menu-number">8</div>
-                            <div class="menu-name">Basketball Free Throw</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(9)">
-                            <div class="menu-number">9</div>
-                            <div class="menu-name">Baby Bottle Drive</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(10)">
-                            <div class="menu-number">10</div>
-                            <div class="menu-name">40 Cans for Lent</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(11)">
-                            <div class="menu-number">11</div>
-                            <div class="menu-name">Fish Fry 🔥</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(12)">
-                            <div class="menu-number">12</div>
-                            <div class="menu-name">MVPS Dinner</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(13)">
-                            <div class="menu-number">13</div>
-                            <div class="menu-name">Mary's Way</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(14)">
-                            <div class="menu-number">14</div>
-                            <div class="menu-name">Bocce Championship</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(15)">
-                            <div class="menu-number">15</div>
-                            <div class="menu-name">Hot Dog Night</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(16)">
-                            <div class="menu-number">16</div>
-                            <div class="menu-name">Special Needs Mass</div>
-                        </li>
-                        <li class="menu-item" onclick="showActivity(17)">
-                            <div class="menu-number">17</div>
-                            <div class="menu-name">School Open House</div>
-                        </li>
-                    </ul>
+                    
+                    <div class="category-section">
+                        <div class="category-header">✟ Faith</div>
+                        <ul class="menu-list">
+                            <li class="menu-item active" onclick="showActivity(1)">
+                                <div class="menu-name">K of C Mass</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(16)">
+                                <div class="menu-name">Special Needs Mass</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-section">
+                        <div class="category-header">👨‍👩‍👧‍👦 Family</div>
+                        <ul class="menu-list">
+                            <li class="menu-item" onclick="showActivity(3)">
+                                <div class="menu-name">Fall Festival</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(6)">
+                                <div class="menu-name">Pancake Breakfast</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(11)">
+                                <div class="menu-name">Fish Fry 🔥</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(12)">
+                                <div class="menu-name">MVPS Dinner</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(13)">
+                                <div class="menu-name">Mary's Way</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(4)">
+                                <div class="menu-name">Soccer Challenge</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(8)">
+                                <div class="menu-name">Basketball Free Throw</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(14)">
+                                <div class="menu-name">Bocce Championship</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(15)">
+                                <div class="menu-name">Hot Dog Night</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(17)">
+                                <div class="menu-name">School Open House</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-section">
+                        <div class="category-header">🤝 Community</div>
+                        <ul class="menu-list">
+                            <li class="menu-item" onclick="showActivity(2)">
+                                <div class="menu-name">Blood Drive</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(7)">
+                                <div class="menu-name">Coats for Kids</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(10)">
+                                <div class="menu-name">40 Cans for Lent</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="category-section">
+                        <div class="category-header">❤️ Life</div>
+                        <ul class="menu-list">
+                            <li class="menu-item" onclick="showActivity(5)">
+                                <div class="menu-name">40 Days for Life</div>
+                            </li>
+                            <li class="menu-item" onclick="showActivity(9)">
+                                <div class="menu-name">Baby Bottle Drive</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Right Side Detail Panels -->
