@@ -826,3 +826,29 @@
                     <li><a href="volunteer.html">Volunteer</a></li>
                     <li><a href="join.html">Join Us</a></li>
                 </
+    <script>
+        function showActivity(num) {
+            // Hide all activities
+            document.querySelectorAll('.activity-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Remove active class from all menu items
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected activity
+            document.getElementById('activity-' + num).classList.add('active');
+            
+            // Highlight selected menu item - need to find which one was clicked
+            event.target.closest('.menu-item').classList.add('active');
+            
+            // Scroll to top of detail panel on mobile
+            if (window.innerWidth <= 968) {
+                document.querySelector('.activity-detail.active').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
