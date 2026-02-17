@@ -16,6 +16,94 @@
             margin: 0 auto 3rem;
         }
 
+        /* Membership Lookup Mobile Styles */
+        .lookup-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px var(--shadow);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .lookup-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .lookup-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            min-width: 0;
+        }
+
+        .lookup-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .member-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px var(--shadow);
+            border-top: 4px solid var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .member-row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+        }
+
+        .member-row-status {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, var(--primary), #2563EB);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .lookup-row {
+                flex-direction: column;
+            }
+
+            .lookup-btn {
+                width: 100%;
+            }
+
+            .member-row,
+            .member-row-status {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+
+            .member-row strong,
+            .member-row-status strong {
+                font-size: 0.85rem;
+                opacity: 0.8;
+            }
+        }
+
         .payment-boxes {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -219,74 +307,62 @@
                 <p>Look up your membership record using your email address</p>
             </div>
             
-            <div style="max-width: 600px; margin: 0 auto 2rem;">
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px var(--shadow);">
-                    <label for="emailLookup" style="display: block; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Enter Your Email:</label>
-                    <div style="display: flex; gap: 1rem;">
-                        <input 
-                            type="email" 
-                            id="emailLookup" 
-                            placeholder="your.email@example.com"
-                            style="flex: 1; padding: 0.8rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem;"
-                        />
-                        <button 
-                            onclick="lookupMember()"
-                            style="background: var(--primary); color: white; padding: 0.8rem 2rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s;"
-                            onmouseover="this.style.background='#1E40AF'"
-                            onmouseout="this.style.background='var(--primary)'"
-                        >
-                            Look Up
-                        </button>
-                    </div>
-                    <div id="lookupMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-medium);"></div>
+            <div class="lookup-box">
+                <label for="emailLookup" style="display: block; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Enter Your Email:</label>
+                <div class="lookup-row">
+                    <input 
+                        type="email" 
+                        id="emailLookup" 
+                        placeholder="your.email@example.com"
+                        class="lookup-input"
+                    />
+                    <button onclick="lookupMember()" class="lookup-btn">Look Up</button>
                 </div>
+                <div id="lookupMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-medium);"></div>
             </div>
 
-            <div id="memberCard" style="max-width: 700px; margin: 0 auto; display: none;">
-                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 6px 20px var(--shadow); border-top: 4px solid var(--secondary);">
-                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Your Membership Record</h3>
-                    
-                    <div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Name:</strong>
-                            <span id="memberName"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Street:</strong>
-                            <span id="memberStreet"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">City:</strong>
-                            <span id="memberCity"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Zip:</strong>
-                            <span id="memberZip"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Email:</strong>
-                            <span id="memberEmail"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Phone:</strong>
-                            <span id="memberPhone"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
-                            <strong style="color: var(--primary);">Last Due Payment:</strong>
-                            <span id="memberLastPayment"></span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: linear-gradient(135deg, var(--primary), #2563EB); color: white; border-radius: 8px;">
-                            <strong>Dues Status:</strong>
-                            <span id="memberDuesStatus" style="font-weight: 700; font-size: 1.1rem;"></span>
-                        </div>
-                    </div>
+            <div id="memberCard" class="member-card" style="display: none;">
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Your Membership Record</h3>
+                
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Name:</strong>
+                    <span id="memberName"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Street:</strong>
+                    <span id="memberStreet"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">City:</strong>
+                    <span id="memberCity"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Zip:</strong>
+                    <span id="memberZip"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Email:</strong>
+                    <span id="memberEmail"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Phone:</strong>
+                    <span id="memberPhone"></span>
+                </div>
+                <div class="member-row">
+                    <strong style="color: var(--primary);">Last Due Payment:</strong>
+                    <span id="memberLastPayment"></span>
+                </div>
+                <div class="member-row-status">
+                    <strong>Dues Status:</strong>
+                    <span id="memberDuesStatus" style="font-weight: 700; font-size: 1.1rem;"></span>
+                </div>
 
-                    <div style="text-align: center; padding: 1.5rem; background: var(--light-bg); border-radius: 12px;">
-                        <p style="margin-bottom: 1rem; color: var(--text-medium);">Questions or need to update your information?</p>
-                        <a href="/cdn-cgi/l/email-protection#0f6c607a616c66633e3b37363a4f68626e6663216c6062307c7a6d656a6c7b32426a626d6a7d7c67667f2f5a7f6b6e7b6a2f5d6a7e7a6a7c7b" style="background: var(--secondary); color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='var(--primary)'" onmouseout="this.style.background='var(--secondary)'">
-                            Contact Financial Secretary
-                        </a>
-                    </div>
+                <div style="text-align: center; padding: 1.5rem; background: var(--light-bg); border-radius: 12px; margin-top: 1rem;">
+                    <p style="margin-bottom: 1rem; color: var(--text-medium);">Questions or need to update your information?</p>
+                    <a href="mailto:council14895@gmail.com?subject=Membership Update Request" 
+                       style="background: var(--secondary); color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                        Contact Financial Secretary
+                    </a>
                 </div>
             </div>
         </div>
