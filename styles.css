@@ -244,12 +244,12 @@ nav a.active {
 
 /* Section Styles */
 section {
-    padding: 5rem 2rem;
+    padding: 2.5rem 2rem;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-header h2 {
