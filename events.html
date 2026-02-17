@@ -3,103 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events & Meetings - St. Luke Knights of Columbus</title>
+    <title>Events - St. Luke Knights of Columbus</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .meeting-box {
+        .events-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .events-menu {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
             background: white;
             border-radius: 16px;
-            padding: 2.5rem;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            box-shadow: 0 6px 20px var(--shadow);
-            border-left: 6px solid var(--secondary);
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow);
         }
 
-        .meeting-box h3 {
+        .events-menu h3 {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary);
         }
 
-        .meeting-box h3::before {
-            content: '📅';
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-item {
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--light-bg);
+            border-left: 3px solid transparent;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+
+        .menu-item:hover {
+            background: #E5E7EB;
+            border-left-color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+            border-left-color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .event-detail {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            min-height: 400px;
+            max-height: 85vh;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .event-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .detail-header {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-title {
+            font-family: 'Crimson Pro', serif;
             font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .meeting-info {
+        .detail-date {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .detail-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-info {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-info h4 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-grid {
             display: grid;
-            gap: 1.2rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
         }
 
         .info-row {
             display: flex;
-            align-items: start;
             gap: 1rem;
         }
 
         .info-row strong {
+            min-width: 80px;
             color: var(--primary);
-            min-width: 120px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
+            margin: 0.5rem 0;
         }
 
-        .events-grid {
-            display: grid;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        /* Mobile responsiveness */
+        @media (max-width: 968px) {
+            .events-container {
+                grid-template-columns: 1fr;
+            }
 
-        .event-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow);
-            transition: transform 0.3s;
-            border-left: 4px solid var(--accent);
-        }
+            .events-menu {
+                position: relative;
+                top: 0;
+            }
 
-        .event-card:hover {
-            transform: translateX(8px);
-        }
+            .menu-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 0.5rem;
+            }
 
-        .event-date {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .event-card h4 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .event-card p {
-            color: var(--text-medium);
-            line-height: 1.7;
-        }
-
-        .month-section {
-            margin-bottom: 3rem;
-        }
-
-        .month-section h3 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 3px solid var(--secondary);
+            .menu-item {
+                font-size: 0.85rem;
+                padding: 0.7rem 0.8rem;
+            }
         }
     </style>
 </head>
@@ -120,211 +194,496 @@
                 <li><a href="events.html" class="active">Events</a></li>
                 <li><a href="volunteer.html">Volunteer</a></li>
                 <li><a href="join.html">Join Us</a></li>
+                <li><a href="members.html">Members</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <div class="page-header">
-        <h1>Meetings & Events</h1>
-        <p>Join us for fellowship, service, and community</p>
-    </div>
-
-    <!-- Regular Meetings -->
-    <section>
+    <!-- Main Content -->
+    <section style="background: var(--light-bg);">
         <div class="container">
-            <div class="meeting-box">
-                <h3>Regular Council Meetings</h3>
-                <div class="meeting-info">
-                    <div class="info-row">
-                        <strong>When:</strong>
-                        <span>First Thursday of each month at 7:00 PM</span>
-                    </div>
-                    <div class="info-row">
-                        <strong>Where:</strong>
-                        <span>Blessed Fr. Michael McGivney Room<br>St. Luke Catholic Church<br>7575 Holliday Drive East, Indianapolis, IN</span>
-                    </div>
-                    <div class="info-row">
-                        <strong>What:</strong>
-                        <span>Business meeting followed by fellowship and refreshments. All members are encouraged to attend.</span>
-                    </div>
+            <div class="events-container">
+                <!-- Left Sidebar Menu -->
+                <div class="events-menu">
+                    <h3>2026 Calendar</h3>
+                    <ul class="menu-list">
+                        <li class="menu-item active" onclick="showEvent(1)">Regular Meetings</li>
+                        <li class="menu-item" onclick="showEvent(2)">Basketball Free Throw</li>
+                        <li class="menu-item" onclick="showEvent(3)">Baby Bottle Drive</li>
+                        <li class="menu-item" onclick="showEvent(4)">Blood Drive</li>
+                        <li class="menu-item" onclick="showEvent(5)">40 Cans for Lent</li>
+                        <li class="menu-item" onclick="showEvent(6)">40 Days for Life</li>
+                        <li class="menu-item" onclick="showEvent(7)">Fish Fry 🔥</li>
+                        <li class="menu-item" onclick="showEvent(8)">Pancake Breakfast</li>
+                        <li class="menu-item" onclick="showEvent(9)">Special Olympics</li>
+                        <li class="menu-item" onclick="showEvent(10)">Youth Soccer</li>
+                        <li class="menu-item" onclick="showEvent(11)">Fall Festival</li>
+                        <li class="menu-item" onclick="showEvent(12)">Coats for Kids</li>
+                        <li class="menu-item" onclick="showEvent(13)">Summer Events</li>
+                    </ul>
                 </div>
-                <p style="color: var(--text-medium); font-style: italic;">New members and prospective members are always welcome to attend and see what we're all about!</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Upcoming Events 2026 -->
-    <section style="background: var(--cream);">
-        <div class="container">
-            <div class="section-header">
-                <h2>2026 Events Calendar</h2>
-                <p>Mark your calendars for these upcoming activities</p>
-            </div>
+                <!-- Right Side Detail Panels -->
+                <div>
+                    <!-- Event 1: Regular Meetings -->
+                    <div class="event-detail active" id="event-1">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Regular Council Meetings</h2>
+                            <p class="detail-date">First Thursday of Every Month</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Join your brother Knights for our monthly council meetings. This is where we plan upcoming events, discuss charitable initiatives, and strengthen our brotherhood. All members are encouraged to attend!
+                        </p>
 
-            <!-- January -->
-            <div class="month-section">
-                <h3>January 2026</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">Thursday, January 16</div>
-                        <h4>Basketball Free Throw Contest</h4>
-                        <p>Annual youth basketball free throw competition. Open to all parish youth. Test your skills and win prizes!</p>
+                        <div class="detail-info">
+                            <h4>Meeting Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>When:</strong>
+                                    <span>First Thursday of each month at 7:00 PM</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Where:</strong>
+                                    <span>Blessed Fr. Michael McGivney Room<br>St. Luke Catholic Church<br>7575 Holliday Drive East, Indianapolis</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Who:</strong>
+                                    <span>All Council #14895 members welcome</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-info">
+                            <h4>2026 Meeting Schedule</h4>
+                            <p style="line-height: 2;">
+                                February 6 • March 6 • April 3 • May 1 • June 5<br>
+                                July 3 • August 7 • September 4 • October 2 • November 6 • December 4
+                            </p>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <div class="event-date">January 17 - February 1</div>
-                        <h4>Baby Bottle Campaign</h4>
-                        <p>Pro-Life fundraiser in partnership with the St. Luke Pro-Life Committee. Baby bottles available to fill with donations for local pregnancy support centers.</p>
+
+                    <!-- Event 2: Basketball Free Throw -->
+                    <div class="event-detail" id="event-2">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Youth Basketball Free Throw Contest</h2>
+                            <p class="detail-date">Thursday, January 16, 2026</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Annual basketball free throw competition for youth ages 9-14. Winners advance to district and potentially state competitions. A great way to encourage young athletes!
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Event Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Date:</strong>
+                                    <span>Thursday, January 16, 2026</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>St. Luke School Gymnasium</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Ages:</strong>
+                                    <span>Boys and girls ages 9-14</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Volunteer:</strong>
+                                    <span><a href="volunteer.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Sign up to help →</a></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Event 3: Baby Bottle Drive -->
+                    <div class="event-detail" id="event-3">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Baby Bottle Drive</h2>
+                            <p class="detail-date">January - February 2026</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Pro-Life fundraiser supporting local pregnancy centers. Baby bottles are distributed after Masses and collected filled with donations to help mothers and babies in need.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Campaign Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Duration:</strong>
+                                    <span>January through February</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Benefits:</strong>
+                                    <span>Local pregnancy resource centers</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Partner:</strong>
+                                    <span>St. Luke Pro-Life Committee</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Volunteer:</strong>
+                                    <span><a href="volunteer.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Help distribute/collect bottles →</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4: Blood Drive -->
+                    <div class="event-detail" id="event-4">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Blood Drive</h2>
+                            <p class="detail-date">Three times per year</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Partner with the Indiana Blood Bank to save lives through blood donation. Each donation can help up to three people in need. Sign up after Mass or donate during the drive.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Blood Drive Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Frequency:</strong>
+                                    <span>Three drives annually</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>St. Luke Catholic Church</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Partner:</strong>
+                                    <span>Indiana Blood Bank</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Impact:</strong>
+                                    <span>Each donation helps save up to 3 lives</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 5: 40 Cans for Lent -->
+                    <div class="event-detail" id="event-5">
+                        <div class="detail-header">
+                            <h2 class="detail-title">40 Cans for Lent</h2>
+                            <p class="detail-date">Throughout Lent 2026</p>
+                        </div>
+                        
+                        <span class="badge">🥫 Goal: 10,000 Pounds!</span>
+                        
+                        <p class="detail-description">
+                            Major food collection campaign during Lent benefiting the St. Vincent de Paul Boulevard Place Food Pantry. Help us reach our goal of 10,000 pounds of food to feed families in need.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Campaign Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Duration:</strong>
+                                    <span>All weekends during Lent</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Goal:</strong>
+                                    <span>10,000 pounds of food</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Benefits:</strong>
+                                    <span>St. Vincent de Paul Boulevard Place Food Pantry</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>What to Bring:</strong>
+                                    <span>Non-perishable food items</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 6: 40 Days for Life -->
+                    <div class="event-detail" id="event-6">
+                        <div class="detail-header">
+                            <h2 class="detail-title">40 Days for Life</h2>
+                            <p class="detail-date">Two campaigns per year</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Peaceful prayer vigils for the dignity of human life. Stand as a witness for life and pray for mothers, babies, and an end to abortion during these 40-day campaigns.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Vigil Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Frequency:</strong>
+                                    <span>Two 40-day campaigns annually (Spring & Fall)</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>86th Street & Georgetown Road</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Commitment:</strong>
+                                    <span>1 hour of peaceful prayer</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Volunteer:</strong>
+                                    <span><a href="volunteer.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Sign up for a time slot →</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 7: Fish Fry -->
+                    <div class="event-detail" id="event-7">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Lenten Fish Fry 🔥</h2>
+                            <p class="detail-date">Two Fridays in Lent</p>
+                        </div>
+                        
+                        <span class="badge">⭐ Major Fundraiser - All Hands Needed!</span>
+                        
+                        <p class="detail-description">
+                            Our biggest event of the year! Delicious fried and baked fish dinners served to hundreds of parishioners and community members. This is THE event where we need maximum volunteer support.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Fish Fry Schedule</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Dates:</strong>
+                                    <span>Friday, February 20 & Friday, March 6, 2026</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Time:</strong>
+                                    <span>5:00 PM - 7:30 PM</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>St. Luke Church Hall</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Menu:</strong>
+                                    <span>Fried & baked fish, sides, desserts, beer & wine</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-info">
+                            <h4>Volunteer Opportunities</h4>
+                            <p>We need help in many areas: Narthex info tables (all Lent weekends), kitchen workers, door sales, serving line, concessions, beer & wine service. <a href="volunteer.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Sign up now →</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Event 8: Pancake Breakfast -->
+                    <div class="event-detail" id="event-8">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Pancake Breakfast</h2>
+                            <p class="detail-date">Three times per year</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Our famous all-you-can-eat pancake breakfasts! Great food, fellowship, and fundraising for important causes like Coats for Kids and Special Olympics. Bring the whole family!
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Breakfast Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Frequency:</strong>
+                                    <span>Three breakfasts annually</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Time:</strong>
+                                    <span>After Sunday Masses</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>St. Luke Church Hall</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Menu:</strong>
+                                    <span>All-you-can-eat pancakes, sausage, coffee</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Benefits:</strong>
+                                    <span>Coats for Kids, Special Olympics, other charities</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 9: Special Olympics -->
+                    <div class="event-detail" id="event-9">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Special Olympics</h2>
+                            <p class="detail-date">Annual - Spring/Summer</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Support Special Olympics Indiana through volunteering and fundraising. The Knights of Columbus is the largest financial supporter of Special Olympics worldwide, and our council is proud to participate!
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Special Olympics Support</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Activities:</strong>
+                                    <span>Volunteering at events, fundraising</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Impact:</strong>
+                                    <span>Support athletes with intellectual disabilities</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Partnership:</strong>
+                                    <span>K of C is #1 financial supporter worldwide</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 10: Youth Soccer -->
+                    <div class="event-detail" id="event-10">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Youth Soccer Challenge</h2>
+                            <p class="detail-date">Annual - September</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Help young athletes test their soccer skills! Kids compete in age brackets, and winners can advance to district and state levels. Great family event during Fall Festival weekend.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Soccer Challenge Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>When:</strong>
+                                    <span>September (during Fall Festival)</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>St. Luke School football field</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Ages:</strong>
+                                    <span>Youth boys and girls, multiple age brackets</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Competition:</strong>
+                                    <span>Winners advance to district/state levels</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 11: Fall Festival -->
+                    <div class="event-detail" id="event-11">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Fall Festival - Grillin' Knights</h2>
+                            <p class="detail-date">Annual - September</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Man the Knights' food booth at St. Luke's annual Fall Festival! Grill burgers and brats, serve the parish, and be a visible presence for the Knights. One of our most fun events!
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Fall Festival Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>When:</strong>
+                                    <span>September (exact date TBD)</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>What We Do:</strong>
+                                    <span>Run the Grillin' Knights food booth</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Menu:</strong>
+                                    <span>Grilled burgers, brats, hot dogs</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Volunteer:</strong>
+                                    <span><a href="volunteer.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Sign up to grill →</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 12: Coats for Kids -->
+                    <div class="event-detail" id="event-12">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Coats for Kids</h2>
+                            <p class="detail-date">Annual - Late October</p>
+                        </div>
+                        
+                        <span class="badge">🧥 165+ Coats Distributed Annually</span>
+                        
+                        <p class="detail-description">
+                            Provide warm winter coats to students at Holy Angels School. Make sure every child stays warm during Indiana winters. Seeing the smiles makes this incredibly rewarding!
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Coats for Kids Details</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>When:</strong>
+                                    <span>Late October 2026</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Location:</strong>
+                                    <span>Holy Angels School</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Impact:</strong>
+                                    <span>165+ coats distributed each year</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Funding:</strong>
+                                    <span>Proceeds from Pancake Breakfasts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 13: Summer Events -->
+                    <div class="event-detail" id="event-13">
+                        <div class="detail-header">
+                            <h2 class="detail-title">Summer Events</h2>
+                            <p class="detail-date">June - August</p>
+                        </div>
+                        
+                        <p class="detail-description">
+                            Summer is full of fun fellowship events for Knights and families! From bocce league to hot dog nights, these casual gatherings strengthen our brotherhood.
+                        </p>
+
+                        <div class="detail-info">
+                            <h4>Summer Calendar</h4>
+                            <div class="info-grid">
+                                <div class="info-row">
+                                    <strong>Bocce League:</strong>
+                                    <span>Weekly games, championship cookout in August</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Hot Dog Night:</strong>
+                                    <span>One evening in summer, casual gathering</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Fifth Sunday Mass:</strong>
+                                    <span>Special Knights Mass and recognition</span>
+                                </div>
+                                <div class="info-row">
+                                    <strong>Family Events:</strong>
+                                    <span>Various activities throughout summer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-
-            <!-- February -->
-            <div class="month-section">
-                <h3>February 2026</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">Sunday, February 8</div>
-                        <h4>Knights Mass</h4>
-                        <p>Special Knights of Columbus Mass at 11:30 AM. All knights, families, and prospective members invited to attend.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Wednesday, February 18</div>
-                        <h4>Ash Wednesday</h4>
-                        <p>Beginning of the Lenten season. Join us in our Lenten observances and charitable activities.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Friday, February 20</div>
-                        <h4>Fish Fry #1</h4>
-                        <p>Our famous Lenten fish fry! Delicious fried and baked fish dinners. Dine-in and carry-out available. Proceeds support our charitable programs.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- March -->
-            <div class="month-section">
-                <h3>March 2026</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">Friday, March 6</div>
-                        <h4>Fish Fry #2</h4>
-                        <p>Second Lenten fish fry dinner. Come enjoy great food and fellowship while supporting our charitable work in the community.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Throughout Lent</div>
-                        <h4>40 Cans for Lent</h4>
-                        <p>Annual food drive benefiting the St. Vincent de Paul Boulevard Place Food Pantry. Our goal: 10,000 lbs of food! Donation bins available at the parish.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- April -->
-            <div class="month-section">
-                <h3>April 2026</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">Sunday, April 5</div>
-                        <h4>Easter Sunday</h4>
-                        <p>He is Risen! Alleluia! Celebrate the resurrection of our Lord.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Sunday, April 12</div>
-                        <h4>Pancake Breakfast</h4>
-                        <p>Delicious all-you-can-eat pancake breakfast after morning Masses. Proceeds support our charitable programs including Coats for Kids and Special Olympics.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Sunday, April 26</div>
-                        <h4>Blood Drive</h4>
-                        <p>Indiana Blood Bank blood drive at St. Luke. Schedule your appointment to donate blood and save lives. Walk-ins welcome!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- May -->
-            <div class="month-section">
-                <h3>May 2026</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">Friday, May 16</div>
-                        <h4>Knights Mass</h4>
-                        <p>Special Knights of Columbus Mass at 5:00 PM. All knights, families, and prospective members invited to attend.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recurring Events -->
-            <div class="month-section">
-                <h3>Recurring Events</h3>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">First Thursday Monthly</div>
-                        <h4>General Council Meeting</h4>
-                        <p>7:00 PM at the Blessed Fr. Michael McGivney Room. Business meeting followed by fellowship and refreshments.</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">When Applicable</div>
-                        <h4>Fifth Sunday Mass</h4>
-                        <p>Knights serve as ushers, lectors, and Eucharistic ministers during special Fifth Sunday Masses (when a month contains five Sundays).</p>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Throughout the Year</div>
-                        <h4>40 Days for Life Prayer Vigils</h4>
-                        <p>Peaceful prayer vigils at Planned Parenthood during 40 Days for Life campaigns. Standing witness for the dignity of human life.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Annual Events -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Annual Traditions</h2>
-                <p>Events we host each year</p>
-            </div>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="events-grid">
-                    <div class="event-card">
-                        <h4>🧥 Coats for Kids</h4>
-                        <p>Each fall, we provide warm winter coats to students at Holy Angels School. A highlight of our charitable giving that ensures no child goes cold during Indiana winters.</p>
-                    </div>
-                    <div class="event-card">
-                        <h4>🏅 Special Olympics Support</h4>
-                        <p>June - We assist with preparation for competition and officiate at Indiana Special Olympics events, supporting athletes with intellectual disabilities.</p>
-                    </div>
-                    <div class="event-card">
-                        <h4>⚽ Soccer Kick Competition</h4>
-                        <p>Fall - Youth soccer skill competition typically held during the St. Luke Fall Festival.</p>
-                    </div>
-                    <div class="event-card">
-                        <h4>🚴 Bike Rodeo</h4>
-                        <p>Spring - We check children's bikes for safety, teach safe riding skills, and make sure every bike is ready for summer riding.</p>
-                    </div>
-                    <div class="event-card">
-                        <h4>🍔 Fall Festival Grillin' Knights</h4>
-                        <p>September - We operate the food booth at St. Luke's annual Fall Festival, serving the parish community with burgers, brats, and hot dogs.</p>
-                    </div>
-                    <div class="event-card">
-                        <h4>🎄 Keep Christ in Christmas</h4>
-                        <p>November-December - Annual Christmas card sales and activities to keep the focus on the true meaning of Christmas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section style="background: var(--cream);">
-        <div class="container" style="text-align: center; max-width: 700px; margin: 0 auto;">
-            <h2 style="font-family: 'Crimson Pro', serif; font-size: 2.3rem; color: var(--primary); margin-bottom: 1.5rem;">Want to Get Involved?</h2>
-            <p style="font-size: 1.2rem; color: var(--text-medium); margin-bottom: 2rem;">
-                Whether you're interested in joining our brotherhood or just want to volunteer at an event, we'd love to hear from you!
-            </p>
-            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="volunteer.html" class="btn btn-primary">Volunteer Opportunities</a>
-                <a href="join.html" class="btn" style="background: var(--primary); color: white;">Join the Knights</a>
             </div>
         </div>
     </section>
@@ -363,5 +722,30 @@
             <p>&copy; 2026 St. Luke Knights of Columbus Council #14895. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function showEvent(num) {
+            // Hide all events
+            document.querySelectorAll('.event-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Remove active class from all menu items
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected event
+            document.getElementById('event-' + num).classList.add('active');
+            
+            // Highlight selected menu item
+            document.querySelectorAll('.menu-item')[num - 1].classList.add('active');
+            
+            // Scroll to top of detail panel on mobile
+            if (window.innerWidth <= 968) {
+                document.querySelector('.event-detail.active').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
