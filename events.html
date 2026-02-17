@@ -535,4 +535,11 @@
             // Highlight selected menu item
             document.querySelectorAll('.menu-item')[num - 1].classList.add('active');
             
-            // Scroll 
+            // Scroll to top of detail panel on mobile
+            if (window.innerWidth <= 968) {
+                document.querySelector('.month-detail.active').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
