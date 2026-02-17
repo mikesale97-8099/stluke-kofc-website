@@ -13,7 +13,7 @@
             border-radius: 16px;
             box-shadow: 0 6px 20px var(--shadow);
             max-width: 900px;
-            margin: 0 auto 3rem;
+            margin: 0 auto;
             border-top: 4px solid var(--primary);
         }
 
@@ -46,7 +46,7 @@
             gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 2rem;
+            padding: 1rem 2rem 2rem;
         }
 
         .months-menu {
@@ -219,7 +219,7 @@
     </nav>
 
     <!-- Regular Meetings -->
-    <section style="padding-top: 3rem;">
+    <section style="padding-top: 3rem; padding-bottom: 1rem;">
         <div class="container">
             <div class="meeting-box">
                 <h3>Regular Council Meetings</h3>
@@ -488,7 +488,7 @@
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li>📧 council14895@gmail.com</li>
+                    <li>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8cefe3f9e2efe5e0bdb8b4b5b9ccebe1ede5e0a2efe3e1">[email&#160;protected]</a></li>
                     <li>📍 7575 Holliday Drive East</li>
                     <li>St. Luke Catholic Church</li>
                     <li>Indianapolis, IN</li>
@@ -517,7 +517,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showMonth(num) {
             // Hide all months
             document.querySelectorAll('.month-detail').forEach(detail => {
@@ -535,11 +535,4 @@
             // Highlight selected menu item
             document.querySelectorAll('.menu-item')[num - 1].classList.add('active');
             
-            // Scroll to top of detail panel on mobile
-            if (window.innerWidth <= 968) {
-                document.querySelector('.month-detail.active').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
-</body>
-</html>
+            // Scroll 
