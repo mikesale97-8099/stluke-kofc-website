@@ -210,6 +210,91 @@
         </div>
     </section>
 
+    <!-- Membership Lookup -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Check Your Membership Status</h2>
+                <p>Look up your membership record using your email address</p>
+            </div>
+            
+            <div style="max-width: 600px; margin: 0 auto 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px var(--shadow);">
+                    <label for="emailLookup" style="display: block; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Enter Your Email:</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <input 
+                            type="email" 
+                            id="emailLookup" 
+                            placeholder="your.email@example.com"
+                            style="flex: 1; padding: 0.8rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem;"
+                        />
+                        <button 
+                            onclick="lookupMember()"
+                            style="background: var(--primary); color: white; padding: 0.8rem 2rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s;"
+                            onmouseover="this.style.background='#1E40AF'"
+                            onmouseout="this.style.background='var(--primary)'"
+                        >
+                            Look Up
+                        </button>
+                    </div>
+                    <div id="lookupMessage" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-medium);"></div>
+                </div>
+            </div>
+
+            <div id="memberCard" style="max-width: 700px; margin: 0 auto; display: none;">
+                <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 6px 20px var(--shadow); border-top: 4px solid var(--secondary);">
+                    <h3 style="font-family: 'Crimson Pro', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Your Membership Record</h3>
+                    
+                    <div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Name:</strong>
+                            <span id="memberName"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Street:</strong>
+                            <span id="memberStreet"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">City:</strong>
+                            <span id="memberCity"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Zip:</strong>
+                            <span id="memberZip"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Email:</strong>
+                            <span id="memberEmail"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Phone:</strong>
+                            <span id="memberPhone"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: var(--light-bg); border-radius: 8px;">
+                            <strong style="color: var(--primary);">Last Due Payment:</strong>
+                            <span id="memberLastPayment"></span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 1rem; padding: 0.8rem; background: linear-gradient(135deg, var(--primary), #2563EB); color: white; border-radius: 8px;">
+                            <strong>Dues Status:</strong>
+                            <span id="memberDuesStatus" style="font-weight: 700; font-size: 1.1rem;"></span>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; padding: 1.5rem; background: var(--light-bg); border-radius: 12px;">
+                        <p style="margin-bottom: 1rem; color: var(--text-medium);">Questions or need to update your information?</p>
+                        <a href="mailto:council14895@gmail.com?subject=Membership Update Request" 
+                           style="background: var(--secondary); color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s;"
+                           onmouseover="this.style.background='var(--primary)'"
+                           onmouseout="this.style.background='var(--secondary)'"
+                        >
+                            Contact Financial Secretary
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Officers -->
     <section style="background: var(--light-bg);">
         <div class="container">
@@ -322,7 +407,7 @@
                 <div class="resource-card">
                     <h4>🛡️ Insurance & Retirement</h4>
                     <p>Ready to discuss your insurance and retirement needs? Contact our Knights of Columbus Field Agent, Nathan Bromm.</p>
-                    <a href="mailto:nathan.bromm@kofc.org" class="resource-link">Email Nathan Bromm →</a>
+                    <a href="/cdn-cgi/l/email-protection#cca2adb8a4ada2e2aebea3a1a18ca7a3aaafe2a3beab" class="resource-link">Email Nathan Bromm →</a>
                 </div>
 
                 <div class="resource-card">
@@ -340,7 +425,7 @@
                 <div class="resource-card">
                     <h4>📧 Contact Officers</h4>
                     <p>Need to reach council leadership? Email us at our general council address and we'll make sure your message gets to the right person.</p>
-                    <a href="mailto:council14895@gmail.com" class="resource-link">Email the Council →</a>
+                    <a href="/cdn-cgi/l/email-protection#72111d071c111b1e43464a4b4732151f131b1e5c111d1f" class="resource-link">Email the Council →</a>
                 </div>
 
                 <div class="resource-card">
@@ -364,7 +449,7 @@
             <div class="footer-section">
                 <h3>Contact Us</h3>
                 <ul>
-                    <li>📧 council14895@gmail.com</li>
+                    <li>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6605091308050f0a57525e5f5326010b070f0a4805090b">[email&#160;protected]</a></li>
                     <li>📍 7575 Holliday Drive East</li>
                     <li>St. Luke Catholic Church</li>
                     <li>Indianapolis, IN</li>
@@ -386,11 +471,78 @@
                     <li><a href="http://www.indianakofc.org/" target="_blank">Indiana State Council</a></li>
                     <li><a href="http://www.stluke.org/" target="_blank">St. Luke Parish</a></li>
                 </ul>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 St. Luke Knights of Columbus Council #14895. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const SHEET_ID = '1vNZ2vbZ-bINXL2_HjunAjfcXFOSKiWiIAtFqHAzt-D8';
+        const SHEET_NAME = 'members';
+        
+        async function lookupMember() {
+            const email = document.getElementById('emailLookup').value.trim().toLowerCase();
+            const messageDiv = document.getElementById('lookupMessage');
+            const memberCard = document.getElementById('memberCard');
+            
+            if (!email) {
+                messageDiv.innerHTML = '<span style="color: #B91C1C;">Please enter an email address</span>';
+                return;
+            }
+            
+            messageDiv.innerHTML = '<span style="color: var(--primary);">Searching...</span>';
+            memberCard.style.display = 'none';
+            
+            try {
+                const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+                const response = await fetch(url);
+                const text = await response.text();
+                
+                // Parse Google Sheets JSON response
+                const json = JSON.parse(text.substr(47).slice(0, -2));
+                const rows = json.table.rows;
+                
+                // Find member by email (column E, index 4)
+                let found = false;
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i].c;
+                    if (row[4] && row[4].v && row[4].v.toLowerCase() === email) {
+                        // Found the member
+                        document.getElementById('memberName').textContent = row[0]?.v || '';
+                        document.getElementById('memberStreet').textContent = row[1]?.v || '';
+                        document.getElementById('memberCity').textContent = row[2]?.v || '';
+                        document.getElementById('memberZip').textContent = row[3]?.v || '';
+                        document.getElementById('memberEmail').textContent = row[4]?.v || '';
+                        document.getElementById('memberPhone').textContent = row[5]?.v || '';
+                        document.getElementById('memberLastPayment').textContent = row[6]?.v || '';
+                        document.getElementById('memberDuesStatus').textContent = row[7]?.v || '';
+                        
+                        memberCard.style.display = 'block';
+                        messageDiv.innerHTML = '';
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    messageDiv.innerHTML = '<span style="color: #B91C1C;">No membership record found for this email address. Please check your email or contact the Financial Secretary.</span>';
+                }
+                
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                messageDiv.innerHTML = '<span style="color: #B91C1C;">Error loading membership data. Please try again or contact the Financial Secretary.</span>';
+            }
+        }
+        
+        // Allow Enter key to submit
+        document.getElementById('emailLookup').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                lookupMember();
+            }
+        });
+    </script>
 </body>
 </html>
