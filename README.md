@@ -1,278 +1,114 @@
-# St. Luke Knights of Columbus Website
-## Council #14895 - Indianapolis
+# St. Luke SVdP Conference — Site Mockup
 
-A modern, multi-page website for St. Luke Knights of Columbus with official Knights branding.
+Five files, no build step required:
 
----
+- `index.html` — the main content page (mission, needs preview, next drive, home visit results, campaigns, sister conferences, volunteer CTA) — this is what a QR code on a bulletin flyer should point to
+- `board.html` — the dedicated, fully-interactive Needs Bulletin Board sub-page (filters + "I can help" claim interaction). Linked to from index.html's needs preview section.
+- `give.html` — a **placeholder** giving page mockup, styled to look like a page on St. Luke's site, with "SVdP — Families in Need" pre-selected as the fund. `DONATE_URL` in `site.js` currently points here. **Swap it for St. Luke's real online giving link** once that platform has an SVdP designation set up — this page does not process real payments, and says so clearly at the top.
+- `site.js` — shared config and data-loading logic used by both pages (see "Google Sheet" section below)
+- `style.css` — shared stylesheet for both pages. Background is St. Luke's brand blue (`#25408E`, pulled from stluke.org). A few components (`.card`, `.glance-card`, `.header`, etc.) render at different sizes on each page, so those are scoped under `.page-board` / `.page-index` (set on each page's `<body>` tag) rather than sharing one rule — safe to edit either page's version without affecting the other.
 
-## 🎨 Adding Your Stained Glass Window Background
+## View it locally
 
-To add the beautiful stained glass window from your church to page headers:
-
-### Option 1: Upload Image to GitHub
-1. Save your stained glass image as `stained-glass.jpg`
-2. In GitHub, create a new folder called `images`
-3. Upload the image to that folder
-4. In `styles.css`, find `.page-header` and change the background to:
-```css
-.page-header {
-    background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.9)),
-                url('images/stained-glass.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 2.5rem 2rem 2rem;
-    text-align: center;
-}
-```
-
-### Option 2: Different Opacity Levels
-Adjust the overlay darkness by changing the rgba values:
-- Darker overlay: `rgba(30, 58, 138, 0.95)` 
-- Lighter overlay: `rgba(30, 58, 138, 0.7)`
-- Very light: `rgba(30, 58, 138, 0.5)`
-
----
-
-## 📏 Compact Design Updates
-
-**New Slim Navigation:**
-- Height reduced from ~100px to ~65px
-- Logo section now white (like current site)
-- Smaller fonts and tighter spacing
-- Matches your current site's look
-
-**Shorter Page Headers:**
-- Reduced from 4rem to 2.5rem padding
-- Smaller title fonts
-- Ready for stained glass background
-
-**Total Space Saved:** ~120px at top of each page!
-
----
-
-## 📁 File Structure
+Just open `index.html` in a browser, or run a tiny local server from this folder:
 
 ```
-kofc-site/
-├── index.html          # Home page with hero and overview
-├── about.html          # Council history and charitable causes
-├── events.html         # Meeting schedule and event calendar
-├── volunteer.html      # Volunteer opportunities
-├── join.html           # Membership information
-├── contact.html        # Contact info and donations
-├── styles.css          # Shared stylesheet for all pages
-└── README.md           # This file
+python3 -m http.server 8000
 ```
 
----
+Then visit http://localhost:8000
 
-## 🎨 Design Features
 
-- **Warm Color Palette**: Earth tones (brown, gold, cream) for a welcoming feel
-- **Classic Fonts**: Crimson Pro and Lora serif fonts for traditional look
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Consistent Navigation**: Easy movement between all pages
-- **Professional Layout**: Clean, organized content presentation
+## Push to GitHub and turn on Pages
 
----
+1. Create a new **empty** repository on GitHub (no README/license, so there's nothing to conflict with) — e.g. `svdp-needs-board`.
+2. From this folder, run:
 
-## 📄 Page Contents
-
-### **index.html** (Home Page)
-- Hero section with council name
-- Four core principles (Charity, Unity, Fraternity, Patriotism)
-- Quick overview of activities
-- Call-to-action buttons
-
-### **about.html** (About Us)
-- Knights of Columbus history
-- Council 14895 background
-- Primary causes (Special Olympics, Gibault)
-- Full list of charitable organizations supported
-- How funds are raised
-
-### **events.html** (Events & Meetings)
-- Regular meeting schedule
-- Complete 2026 calendar
-- Annual recurring events
-- Event descriptions and dates
-
-### **volunteer.html** (Volunteer)
-- 12 different volunteer opportunities
-- Detailed descriptions
-- Sign-up links via email
-- Impact statistics
-
-### **join.html** (Join Us)
-- Membership requirements
-- Benefits of joining
-- Step-by-step joining process
-- What to expect as a member
-- FAQs
-
-### **contact.html** (Contact)
-- Email and location information
-- Meeting times
-- Donation section with preset amounts
-- Links to related organizations
-
----
-
-## ✏️ Customization Guide
-
-### **Update Content:**
-
-1. **Replace Placeholder Images**
-   - Look for sections with gradient backgrounds and text like "Add your photo here"
-   - Replace with actual images using: `<img src="your-image.jpg" alt="Description">`
-
-2. **Add Officer Information**
-   - Currently in `about.html` or can be added to `contact.html`
-   - Add officer cards with names, roles, and contact info
-
-3. **Update Events**
-   - Edit `events.html` to add/remove events
-   - Keep the 2026 calendar current
-
-4. **Customize Colors** (in `styles.css`)
-   ```css
-   :root {
-       --primary: #8B4513;    /* Main brown */
-       --secondary: #D4AF37;  /* Gold accent */
-       --accent: #C85A3C;     /* Red-brown */
-   }
-   ```
-
-5. **Add Your Logo**
-   - Replace the ✠ symbol in hero sections
-   - Use: `<img src="logo.png" alt="Council Logo">`
-
----
-
-## 🚀 Deployment Options
-
-### **Option 1: GitHub Pages (FREE)**
-1. Create GitHub account at github.com
-2. Create new repository named `kofc-website`
-3. Upload all files from `kofc-site/` folder
-4. Go to Settings → Pages
-5. Select "main" branch and Save
-6. Your site will be live at: `https://[username].github.io/kofc-website`
-
-### **Option 2: Web Hosting Service**
-Upload files via FTP to any web host:
-- **Bluehost** (~$3-10/month)
-- **HostGator** (~$3-10/month)
-- **SiteGround** (~$4-15/month)
-
-### **Option 3: Church/Parish Server**
-Ask your parish IT if they can host the site on the St. Luke domain.
-
----
-
-## 📧 Email Links
-
-All volunteer and contact forms use `mailto:` links to council14895@gmail.com.
-
-To change the email address:
-1. Search for `council14895@gmail.com` in all HTML files
-2. Replace with your preferred email address
-
----
-
-## 💳 Donation Integration
-
-The donation button currently shows an alert. To accept real payments:
-
-1. **PayPal Button**
-   - Create button at PayPal.com
-   - Replace the `processDonation()` function with PayPal code
-
-2. **Stripe**
-   - Sign up at Stripe.com
-   - Use Stripe Checkout integration
-
-3. **Square**
-   - Create Square account
-   - Use Square Payment Forms
-
-4. **Diocesan Giving Platform**
-   - Many dioceses have approved platforms
-   - Link directly to their donation page
-
----
-
-## 🗺️ Add Google Maps
-
-In `contact.html`, replace the map placeholder with:
-
-```html
-<iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.123456789!2d-86.123456!3d39.987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM0KCsDU5JzAzLjYiTiA4NsKwMDcnMjQuNCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-    width="100%" 
-    height="400" 
-    style="border:0; border-radius: 12px;" 
-    allowfullscreen="" 
-    loading="lazy">
-</iframe>
+```
+git init
+git add .
+git commit -m "Initial mockup: landing page + needs board"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/svdp-needs-board.git
+git push -u origin main
 ```
 
-Get your embed code from Google Maps:
-1. Search for St. Luke Catholic Church
-2. Click "Share"
-3. Click "Embed a map"
-4. Copy the HTML code
+3. On GitHub: go to the repo's **Settings → Pages**, and under "Build and deployment" set **Source: Deploy from a branch**, branch **main**, folder **/(root)**. Save.
+4. GitHub will give you a live URL, usually `https://YOUR-USERNAME.github.io/svdp-needs-board/` — that's what the QR code on your flyer should point to.
 
----
+## Notes / next steps
 
-## 📱 Testing on Mobile
+- The "40 Days for 40 Beds," "Volunteer," and "Give" links on the landing page are placeholders (`#`) — point them at real pages when ready.
+- The needs board's claim state is in-memory only (resets on refresh) since this is a mockup — a real version would need a backend or a form (e.g. a Google Form) behind "I can help."
 
-Before going live, test on:
-- iPhone/Android phone
-- iPad/tablet
-- Desktop browser
+## Making the board and results table Google-Sheet-driven
 
-Make sure:
-- Text is readable
-- Buttons work
-- Navigation functions
-- Images load properly
+Both `index.html`'s needs preview / results table and `board.html`'s full needs board pull from `site.js` — one place to update, both pages stay in sync.
 
----
+The Needs data now comes from the **svdp-needs-board-template.xlsx** workbook (one row per home visit, with Warehouse/Special Need/Rent/Utility needs tracked side by side). `site.js` expects that exact column layout — see the workbook's own Instructions tab for the full column reference. In short:
 
-## 🔧 Troubleshooting
+```
+ServWare ID | Initial Home Visit Date | # in Household | Summary |
+Warehouse Item Needed? | Distribution Center Request Date | Warehouse Item | Warehouse Status |
+Special Need Item? | Special Need Item | Special Need Status | Household Combined Status |
+Rent Assistance Needed? | Rent Assistance Needed | Rent Amount Needed | Rent Need Status |
+Utility Assistance Needed? | Utility Assistance Needed | Utility Need Amount | Utility Need Status |
+Overall Status | Month Posted
+```
 
-**Problem**: Pages look unstyled
-**Solution**: Make sure `styles.css` is in the same folder as HTML files
+`site.js` expands each visit row into board cards (one per need type that's flagged "Yes"), so a family needing both rent help and a bed shows as two separate cards, sharing the same `Summary` text.
 
-**Problem**: Navigation links don't work
-**Solution**: Ensure all file names match exactly (case-sensitive on some servers)
+- **Household items are tracked two ways:** most go through the SVdP central warehouse (Warehouse columns) — no parishioner action needed, tracked purely for record-keeping. Occasionally an item isn't available through the warehouse and needs a parishioner to step up (Special Need columns). **The board shows only ONE household card per visit** — the Special Need if one exists (with the "I can help" claim button), otherwise the Warehouse item as a plain, non-interactive "SVdP Warehouse" info card. Both still count toward the `furniture_requests` figure in Results either way, even though only one ever renders on the board.
+- **Rent/Utility items** render as status-badge cards feeding the shared fund thermometer, same as before — `Rent Amount Needed` / `Utility Need Amount` are approximate context figures only, not per-family accounts, and `Rent Need Status` / `Utility Need Status` are the manual Open/Partially Covered/Covered dropdowns from the workbook.
+- The **note-worthy schema change:** there's no more `urgency` field. Card color/priority now comes entirely from status (Open = most urgent, Partially Covered, Covered = resolved) instead of a separate high/medium/low rating.
 
-**Problem**: Emails don't work
-**Solution**: Check that email client is set up on the computer/device
+**Monthly rollover** (unchanged in spirit): a need Covered in a *prior* month disappears from the board automatically; Open/Partially Covered needs keep showing regardless of age; a same-month Covered win still shows before it rolls off. This uses each expanded need's `month_posted`, taken straight from the workbook's calculated `Month Posted` column.
 
----
+**Tab "Results"** — already fully formula-driven inside the workbook itself (see its Instructions tab). The site just displays whatever gets published:
+```
+month | home_visits | people_helped | furniture_requests | rent_utility_requests | financial_assistance
+```
 
-## 📞 Need Help?
+### 1. Publish both tabs as CSV
 
-- **For technical questions about the website**: Email the developer who created this
-- **For Knights of Columbus questions**: council14895@gmail.com
-- **For web hosting help**: Contact your chosen hosting provider's support
+For each of the workbook's **Needs** and **Results** tabs:
+1. File → Share → **Publish to web**
+2. Under "Link," choose the specific tab (not "Entire Document")
+3. Choose **Comma-separated values (.csv)** as the format
+4. Click **Publish**, copy the URL it gives you
 
----
+### 2. Paste the URLs into the site
 
-## 📝 Future Enhancements
+Open `site.js`, find this block near the top:
 
-Consider adding:
-- Photo gallery with actual event photos
-- Online RSVP forms for events
-- Newsletter signup
-- Member login area (requires backend)
-- Blog/news section for announcements
-- Social media integration
+```js
+const NEEDS_CSV_URL = "";
+const RESULTS_CSV_URL = "";
+const DONATE_URL = "";
+const FUND_RAISED = 300;
+const FUND_RAISED_MONTH = "2026-07";
+```
 
----
+Paste your two published CSV URLs between the quotes. Also paste in your parish giving site's SVdP donation link as `DONATE_URL`. Update `FUND_RAISED` and `FUND_RAISED_MONTH` by hand each month as you check the parish giving system. Save and re-upload `site.js` to GitHub — no need to touch `index.html` or `board.html`.
 
-**Built with care for Council #14895**
-*May your charitable work continue to bless the Indianapolis community!*
+If a URL is left blank or the fetch fails for any reason, the page quietly falls back to the built-in sample data, so it never shows a broken page.
+
+## This Month, At a Glance
+
+Both pages show a compact "at a glance" card with a two-paragraph summary — home visits and assistance given this month, then available funds vs. outstanding requests — instead of a separate gauge widget (an earlier design; removed in favor of plain sentences, which tested better).
+
+This is deliberately **not** a transactional ledger — the conference's detailed money-tracking lives elsewhere with whoever minds the funds. It reads from the workbook's **Balance Snapshot** tab, which only has **two manual columns**:
+
+```
+snapshot_date | funds_available
+```
+
+Everything else on that tab (`outstanding_needs`, `assistance_provided_this_month`, `available_balance`) is a **formula** computed from the Needs tab's `Rent Date Covered` / `Utility Date Covered` columns — see the workbook's own Instructions tab for the exact formulas. The site itself only ever reads `snapshot_date` and `funds_available` from this tab; the other columns exist for the treasurer's own reference and aren't consumed by `site.js`.
+
+Because those formulas ask a historical question ("was this still outstanding as of THIS row's date?") using real covered-dates rather than a status that keeps changing, **old rows never need to be manually locked or frozen** — add a new row each week and every row, old or new, stays correct indefinitely.
+
+Publish the tab as CSV the same way as the others, then paste its URL into `site.js`:
+
+```js
+const LEDGER_CSV_URL = "";
+```
